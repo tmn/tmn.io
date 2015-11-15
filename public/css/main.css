@@ -25,7 +25,9 @@ p {
 
 
 article {
-  margin-bottom: 55px;
+  margin-bottom: 45px;
+  padding-bottom: 45px;
+  border-bottom: 1px solid #efefef;
 }
 
   article header {

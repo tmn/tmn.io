@@ -11,6 +11,12 @@
   "dependencies": {
     "consolidate": "^0.10.0",
     "express": "^4.9.1",
-    "hogan.js": "^3.0.2"
+    "hogan.js": "^3.0.2",
+    "marked": "^0.3.5"
+  },
+  "devDependencies": {
+    "express-react-views": "^0.9.0",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2"
   }
 }

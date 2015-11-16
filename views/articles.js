@@ -36,7 +36,7 @@ var Articles = () => {
           title: md[0].split('#').slice(1).join('#'),
           date: md[1],
           content: md.slice(3).join('\n'),
-          url: 'article/' + a.slice(0, -3)
+          url: 'read/' + a.slice(0, -3)
         };
 
         return <Article key={key} article={article} />;

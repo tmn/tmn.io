@@ -19,7 +19,7 @@ app.get('/is/professional', function (req, res) {
   res.render('cv')
 })
 
-app.get('/article/:article_name', function (req, res) {
+app.get('/read/:article_name', function (req, res) {
   res.render('article', { title: 'tmn.io - ' + req.params.article_name, article: req.params.article_name })
 })
 

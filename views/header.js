@@ -10,7 +10,6 @@ module.exports = () => {
         <ul className="profileLocation-list">
           <li><a href="https://github.com/tmn/">GitHub</a></li>
           <li><a href="https://twitter.com/itmn/">Twitter</a></li>
-          <li><a href="/is/professional/">CV</a></li>
         </ul>
       </div>
     </header>

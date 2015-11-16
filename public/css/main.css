@@ -50,6 +50,17 @@ article {
     color: #666;
   }
 
+#article-header {
+  margin-bottom: 55px;
+  background-color: #f8f8f8;
+  height: 55px;
+  line-height: 55px;
+}
+
+#comment-section {
+  margin-top: 85px;
+}
+
 #mainHeader {
   position: relative;
   width: 100%;

@@ -5,7 +5,7 @@ var marked = require('marked');
 
 var ArticleSingle = React.createClass({
   render: function () {
-    var md = fs.readFileSync(path.join('articles', this.props.article) + '.md', 'utf8');
+    var md = fs.readFileSync(path.join(__dirname + '/../articles', this.props.article) + '.md', 'utf8');
     md = md.split('\n');
 
     var article = {

@@ -21,7 +21,7 @@ var Article = ({ article }) => {
 };
 
 var Articles = () => {
-  var articles = fs.readdirSync('./articles').reverse();
+  var articles = fs.readdirSync(__dirname + '/../articles').reverse();
   articles = articles.filter(function (f) {
     return path.extname(f) === '.md';
   });
@@ -29,7 +29,7 @@ var Articles = () => {
   return (
     <section id="blogContent" className="container">
       {articles.map(function (a, key) {
-        var md = fs.readFileSync(path.join('articles', a), 'utf8');
+        var md = fs.readFileSync(path.join(__dirname + '/../articles', a), 'utf8');
         md = md.split('\n');
 
         var article = {

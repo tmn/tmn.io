@@ -64,10 +64,13 @@ em {
 }
 
 article {
-  margin-bottom: 45px;
-  padding-bottom: 45px;
-  border-bottom: 1px solid #efefef;
+  margin-bottom: 75px;
+  padding-bottom: 65px;
+  border-bottom: 1px solid #ddd;
 }
+  article:last-child {
+    border-bottom: 0;
+  }
 
   article header {
     margin-bottom: 15px;

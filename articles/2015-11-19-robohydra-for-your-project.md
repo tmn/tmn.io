@@ -29,7 +29,7 @@ Let's set up the proxy for our production site:
 ```javascript
 new RoboHydraHeadProxy({
   name: 'My Social Network',
-  mountPath: '/',                           // application path
+  mountPath: '/',                   // application path
   proxyTo: 'http://example.com/'    // external application
 })
 ```
@@ -40,8 +40,8 @@ And now the fun part! Let's say all your JavaScript files are located at _http:/
 ```javascript
 new RoboHydraHeadFilesystem({
   name: 'My JavaScript files',
-  mountPath: '/js',                         // external path to JS files
-  documentRoot: 'src/main/webapp/js/src'    // local path to JS files
+  mountPath: '/js',                       // external path to JS files
+  documentRoot: 'src/main/webapp/js/src'  // local path to JS files
 })
 ```
 
@@ -64,14 +64,14 @@ exports.getBodyParts = function (conf) {
     heads: [
       new RoboHydraHeadProxy({
         name: 'My Social Network',
-        mountPath: '/',                           // application path
-        proxyTo: 'http://example.com/'    // external application
+        mountPath: '/',
+        proxyTo: 'http://example.com/'
       }),
 
       new RoboHydraHeadFilesystem({
         name: 'My JavaScript files',
-        mountPath: '/js',                         // external path to JS files
-        documentRoot: 'src/main/webapp/js/src'    // local path to JS files
+        mountPath: '/js',
+        documentRoot: 'src/main/webapp/js/src'
       })
     ]
   }

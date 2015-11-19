@@ -12,7 +12,7 @@ var Index = React.createClass({
         <title>{this.props.title}</title>
         <link rel="stylesheet" type="text/css" href="/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/main.css" />
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github-gist.min.css" />
 
         <meta name="viewport" content="width=device-width" />
       </head>

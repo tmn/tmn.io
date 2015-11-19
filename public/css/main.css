@@ -46,8 +46,9 @@ code {
 code.hljs {
   padding: 15px 25px;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-bottom: 25px;
+  background: #fbfbfb;
 }
 
 p {

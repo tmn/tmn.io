@@ -110,7 +110,7 @@ new RoboHydraHeadStatic({
     success: true,
     results: res.send(data[id])
   }
-})
+});
 ```
 
 Now when Robohydra runs alongside the rest of the system. All request towards `/api/resource/(someResourceId)` will return local mocks instead of errors caused by unavailable resources. And while we're talking about errors. You can of course return intended errors for the sake of tests too!
@@ -122,10 +122,10 @@ new RoboHydraHead({
   path: '/slow/resource/:millis',
   handler: function (req, res) {
     setTimeout(function () {
-      res.send({message: 'wooo!'})
+      res.send({message: 'wooo!'});
     }, req.queryParams.millis || 10000);
   }
-})
+});
 ```
 
 

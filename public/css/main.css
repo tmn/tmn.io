@@ -136,7 +136,9 @@ article {
       }
 
     .mainHeader-title {
+      font-family: Georgia, Serif;
       margin-bottom: 15px;
+      font-size: 32px;
     }
 
 #blogContent {

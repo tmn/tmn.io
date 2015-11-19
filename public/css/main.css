@@ -1,8 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,400italic,500italic,700,700italic);
+
 body {
   font-size: 16px;
   font-family: Georgia, serif;
   line-height: 28px;
-  color: rgba(0, 0, 0, .65);
+  color: rgba(0, 0, 0, .72);
 }
 
 a {
@@ -14,20 +16,25 @@ a {
     color: #376682;
   }
 
+h1, h2, h3, h4 {
+  font-family: 'Roboto', sans-serif;
+}
+
 h1 {
-  font-size: 26px;
+  font-size: 36px;
   color: #222;
 }
 
 h2 {
-
+  font-size: 22px;
+  color: #222;
+  padding-top: 20px;
 }
 
 h3 {
-  font-size: 16px;
-  color: #222;
-  padding-top: 15px;
-  font-weight: bold;
+  color: #888;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 code {
@@ -40,7 +47,7 @@ code.hljs {
   padding: 15px 25px;
   box-sizing: border-box;
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 p {
@@ -86,7 +93,7 @@ article {
   }
 
 #article-header {
-  margin-bottom: 55px;
+  margin-bottom: 75px;
   background-color: #f8f8f8;
   height: 55px;
   line-height: 55px;

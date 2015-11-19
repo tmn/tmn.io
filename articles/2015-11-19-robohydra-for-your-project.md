@@ -4,7 +4,7 @@ Thursday 18 November 2015
 Robohydra? Pylons? Zealots?! Everytime I implement Robohydra in one of the teams projects, people tend to ask _"did you just implement StarCraft again?!"_. And I have to admit, I've been using Robohydra **a lot** lately.
 
 
-### What is it? What is it good for?
+## What is it? What is it good for?
 
 First of all, Robohydra is _"a web server designed to help you test any kind of HTTP client"_. So, what is it good for?
 
@@ -51,7 +51,7 @@ Awesome!
 
 But say you've already got the system set up locally. Meaning, you already went through the process of setting it up. The problem now is that for every style you change, or JavaScript logic you add, you have to rebuild and redeploy the whole package. Maybe it's a Java package deployed on a local tomcat server. Well, you don't want to rebuild and redeploy the package for every change! Neither do you want to f**k up the Java code and configs some other developer has written to reflect your needs. Robohydra to the rescue! You can simply switch the `RoboHydraHeadProxy` to point to your local server. And voilà. Same behaviour!
 
-**This is how the plugin will look like:**
+### This is how the plugin will look like
 
 ```javascript
 var robohydra = require('robohydra');
@@ -78,7 +78,7 @@ exports.getBodyParts = function (conf) {
 };
 ```
 
-### Some data not available outside the network?
+## Some data not available outside the network?
 
 Sometimes you may be told to demo a solution for peoples outside your company network. And you simply don't have access to the resources needed. What do you do?
 
@@ -129,7 +129,7 @@ new RoboHydraHead({
 ```
 
 
-### Sum it up already!
+## Sum it up already!
 These are my main use cases with Robohydra. By using these methods you can simply create tests clients for your client-server application, return canned responses, static content, reverse proxy requests and a whole lot more. It also comes with a web interface that allow you to change its behaviour dynamically, with easy access to scenarios and test results. Head over to [robohydra.org](http://robohydra.org/) and grab your copy of this awesome tool!
 
 ![Robohydra screen](http://tmn.io/img/robohydra_screen.png)

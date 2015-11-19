@@ -13,7 +13,7 @@ Let's say your team is told to fix and implement some JavaScript features on one
 Or you can use Robohydra! With a simple Robohydra plugin you can bypass the hassle by setting up the system locally, and just clone the JavaScriprt files you need to solve the issue. How? You ask. Let me show you!
 
 
-This is an example on how to only serve the JavaScript file form your local disk. The rest is fetched form the external source:
+This is an example on how to only serve the JavaScript file from your local disk. The rest is fetched form the external source:
 
 ```javascript
 var robohydra = require('robohydra')

@@ -15,13 +15,13 @@ Or you can use Robohydra! With a simple Robohydra plugin you can bypass the hass
 To get started, you need Robohydra:
 
 ```javascript
-var robohydra = require('robohydra')
+var robohydra = require('robohydra');
 
 // Get them HEADS
-var RoboHydraHead = robohydra.heads.RoboHydraHead
-var RoboHydraHeadFilesystem = robohydra.heads.RoboHydraHeadFilesystem
-var RoboHydraHeadProxy = robohydra.heads.RoboHydraHeadProxy
-var RoboHydraHeadStatic = robohydra.heads.RoboHydraHeadStatic
+var RoboHydraHead = robohydra.heads.RoboHydraHead;
+var RoboHydraHeadFilesystem = robohydra.heads.RoboHydraHeadFilesystem;
+var RoboHydraHeadProxy = robohydra.heads.RoboHydraHeadProxy;
+var RoboHydraHeadStatic = robohydra.heads.RoboHydraHeadStatic;
 ```
 
 Then the proxy for our production site:
@@ -31,7 +31,7 @@ new RoboHydraHeadProxy({
   name: 'My Social Network',
   mountPath: '/',                   // application path
   proxyTo: 'http://example.com/'    // external application
-})
+});
 ```
 
 And now the fun part! Say all your JavaScript files are located at _http://example.com/js/_. But locally it's in `~/awesomeProject/src/main/webapp/js/src`. By using the `RoboHydraHeadFilesystem` you can simply serve static files through Robohydra to all request on `/js`:
@@ -42,7 +42,7 @@ new RoboHydraHeadFilesystem({
   name: 'My JavaScript files',
   mountPath: '/js',                       // external path to JS files
   documentRoot: 'src/main/webapp/js/src'  // local path to JS files
-})
+});
 ```
 
 Now when you access the Robohydra thorugh `http://localhost:3000/` in your browser, all JavaScript files are served locally, while the rest is proxied from your production site.
@@ -54,10 +54,10 @@ But say you've already got the system set up locally. Meaning, you already went 
 **This is how the plugin will look like:**
 
 ```javascript
-var robohydra = require('robohydra')
+var robohydra = require('robohydra');
 
-var RoboHydraHeadFilesystem = robohydra.heads.RoboHydraHeadFilesystem
-var RoboHydraHeadProxy = robohydra.heads.RoboHydraHeadProxy
+var RoboHydraHeadFilesystem = robohydra.heads.RoboHydraHeadFilesystem;
+var RoboHydraHeadProxy = robohydra.heads.RoboHydraHeadProxy;
 
 exports.getBodyParts = function (conf) {
   return {
@@ -74,8 +74,8 @@ exports.getBodyParts = function (conf) {
         proxyTo: 'http://example.com/'
       })
     ]
-  }
-}
+  };
+};
 ```
 
 ### Some data not available outside the network?

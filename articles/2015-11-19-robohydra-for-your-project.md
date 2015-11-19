@@ -41,7 +41,9 @@ exports.getBodyParts = function (conf) {
 
 ```
 
-Let's say you've already got the system setup locally. But for every style you change, or JavaScript logic you add, you have to rebuild and redeploy the whole package. Let's say it's a Java package deployed on a local tomcat server. Well, you don't want to rebuild and redeploy the package for every change! And you don't want to f**k up the Java code other has written to reflect your needs. Robohydra to the rescue!
+Awesome!
+
+But let's say you've already got the system setup locally. But for every style you change, or JavaScript logic you add, you have to rebuild and redeploy the whole package. Let's say it's a Java package deployed on a local tomcat server. Well, you don't want to rebuild and redeploy the package for every change! And you don't want to f**k up the Java code other has written to reflect your needs. Robohydra to the rescue!
 
 
 

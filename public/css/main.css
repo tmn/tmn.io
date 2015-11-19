@@ -2,7 +2,7 @@ body {
   font-size: 16px;
   font-family: Georgia, serif;
   line-height: 28px;
-  color: #666c55;
+  color: rgba(0, 0, 0, .65);
 }
 
 a {
@@ -19,10 +19,40 @@ h1 {
   color: #222;
 }
 
+h2 {
+
+}
+
+h3 {
+  font-size: 16px;
+  color: #222;
+  padding-top: 15px;
+  font-weight: bold;
+}
+
+code {
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-size: 14px;
+}
+
+code.hljs {
+  padding: 15px 25px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
 p {
   margin-bottom: 15px;
 }
 
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
 
 article {
   margin-bottom: 45px;
@@ -33,6 +63,10 @@ article {
   article header {
     margin-bottom: 15px;
   }
+
+    article header h1:hover {
+      color: #376682;
+    }
 
   article img {
     max-width: 720px;
@@ -102,7 +136,7 @@ article {
 }
 
 .container {
-  max-width: 720px;
+  max-width: 740px;
   margin: 0 auto;
   padding: 0 15px;
 }

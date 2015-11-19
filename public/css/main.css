@@ -33,6 +33,7 @@ h3 {
 code {
   font-family: Consolas, Monaco, 'Andale Mono', monospace;
   font-size: 14px;
+  line-height: 22px;
 }
 
 code.hljs {

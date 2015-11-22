@@ -18,7 +18,7 @@ Fuse code compiles down to native C++. So the code you write will run natively o
 
 In order to start exploring Fuse all you need is to download and install the tool itself from [fusetools.com](https://fusetools.com/). Their site is also the best reference for learning Fuse.
 
-The Fuse team provides great tutorial videos for you to get started with creating awesome apps. Some bits are less documented in the documentation, but you'll get an idea of what it can do. And there is enough information to get around. Fuse also has a growing community. And the whole team is actively answering questions you might have :-)
+The Fuse team provides great tutorial videos for you to get started. Some bits are less documented in the documentation, but enough to get around, and you'll get an idea of what it's capable of doing. Fuse also has a growing community, and the whole team is actively answering questions you might have :-)
 
 
 

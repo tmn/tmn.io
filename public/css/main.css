@@ -5,6 +5,7 @@ body {
   font-family: Georgia, serif;
   line-height: 28px;
   color: rgba(0, 0, 0, .72);
+  background-color: #f8f8f8;
 }
 
 a {
@@ -37,10 +38,14 @@ h3 {
   font-weight: 500;
 }
 
+h4 {
+  font-weight: bold;
+}
+
 code {
   font-family: Consolas, Monaco, 'Andale Mono', monospace;
   font-size: 14px;
-  line-height: 22px;
+  line-height: 20px;
 }
 
 code.hljs {
@@ -63,26 +68,40 @@ em {
   font-style: italic;
 }
 
-article {
-  margin-bottom: 75px;
-  padding-bottom: 65px;
-  border-bottom: 1px solid #ddd;
+.container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
-  article:last-child {
-    border-bottom: 0;
-  }
+
+
+
+
+article {
+  position: relative;
+  background-color: #fff;
+  padding: 45px 35px;
+  margin-bottom: 45px;
+  box-sizing: border-box;
+}
 
   article header {
-    margin-bottom: 15px;
+    margin-bottom: 45px;
   }
+
+    article header h1 {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
 
     article header h1:hover {
       color: #376682;
     }
 
   article img {
-    max-width: 720px;
-    width: 100%;
+    max-width: 740px;
+    margin: 0 -35px;
   }
 
   article ul {
@@ -94,14 +113,76 @@ article {
     font-family: Helvetica, sans-serif;
     font-size: 12px;
     color: #666;
+    text-align: center;
+    display: block;
   }
 
 .gold {
   color: #D8C24B;
 }
 
+.wrap0 {
+  max-width: 1050px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 35px;
+}
+
+#blogContent {
+  max-width: 740px;
+  width: 100%;
+  float: left;
+}
+
+#sidebar {
+  width: 280px;
+  background: #fff;
+  float: right;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 22px;
+}
+
+  #sidebar h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  #sidebar header {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+  }
+
+  #sidebar p {
+    font-size: 14px;
+  }
+
+  .post-list {
+    margin-top: 10px;
+    list-style: disc;
+    padding-bottom: 10px;
+  }
+
+  .post-list ul {
+    margin-left: 20px;
+    list-style: disc;
+  }
+
+  .sidebar-content {
+    padding: 15px 25px;
+    position: relative;
+  }
+
+  .sidebar-profile-picture {
+    max-width: 280px;
+  }
+
 #article-header {
-  margin-bottom: 75px;
   background-color: #f8f8f8;
   height: 55px;
   line-height: 55px;
@@ -111,75 +192,52 @@ article {
   margin-top: 85px;
 }
 
-#mainHeader {
+.profileLocation-list li {
+  display: inline-block;
+  margin: 2px 10px;
+  width: 45px;
+  height: 45px;
   position: relative;
-  width: 100%;
-  height: 320px;
-  background-color: #f8f8f8;
 }
 
-  .mainHeader-content {
+  .profileLocation-list .fa-custom {
+    font-size: 40px;
+  }
+
+  .profileLocation-list a {
+    color: #D8C24B;
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-       -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    text-align: center;
+    transform: translate(-50%, -50%);
   }
 
-    .profilePicture {
-      border-radius: 50%;
-      margin-bottom: 10px;
-      width: 120px;
-    }
-
-    .profileLocation-list {
-      margin-bottom: -15px;
-    }
-
-    .profileLocation-list li {
-      margin: 2px 25px;
-      background-color: transparent;
-      width: 45px;
-      height: 45px;
-
-      display: inline-block;
-      position: relative;
-    }
-
-      .profileLocation-list .fa-custom {
-        font-size: 40px;
-      }
-
-      .profileLocation-list a {
-        color: #D8C24B;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-        .profileLocation-list a:hover {
-          color: #666;
-        }
-
-
-    .mainHeader-title {
-      font-family: Georgia, Serif;
-      margin-bottom: 15px;
-      font-size: 32px;
+    .profileLocation-list a:hover {
+      color: #666;
     }
 
 
+@media (max-width: 1070px) {
+  #blogContent {
+    float: none;
+  }
 
-#blogContent {
-  margin-top: 65px;
+  #sidebar {
+    float: none;
+  }
+
+  .wrap0 {
+    max-width: 740px;
+  }
 }
 
-.container {
-  max-width: 740px;
-  margin: 0 auto;
-  padding: 0 15px;
+@media (max-width: 790px) {
+  article {
+    padding: 35px 25px;
+  }
+
+  article img {
+    width: 100%;
+    margin: 0;
+  }
 }

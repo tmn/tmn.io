@@ -11,8 +11,8 @@ var Article = ({ article }) => {
   return (
     <article>
       <header>
-        <a href={article.url}><h1>{article.title}</h1></a>
         <span className="article-meta">{article.date}</span>
+        <a href={article.url}><h1>{article.title}</h1></a>
       </header>
 
       <div dangerouslySetInnerHTML={rawMarkup} />
@@ -27,7 +27,7 @@ var Articles = () => {
   });
 
   return (
-    <section id="blogContent" className="container">
+    <section id="blogContent">
       {articles.map(function (a, key) {
         var md = fs.readFileSync(path.join(__dirname + '/../articles', a), 'utf8');
         md = md.split('\n');

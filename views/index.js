@@ -2,6 +2,7 @@ var React = require('react');
 
 var Articles = require('./articles');
 var Header = require('./header');
+var Sidebar = require('./sidebar');
 
 var Index = React.createClass({
   render: function () {
@@ -18,8 +19,10 @@ var Index = React.createClass({
         <meta name="viewport" content="width=device-width" />
       </head>
       <body>
-        <Header />
-        <Articles />
+        <div className="wrap0">
+          <Articles />
+          <Sidebar />
+        </div>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script dangerouslySetInnerHTML={{__html: `hljs.initHighlightingOnLoad();`}}></script>

@@ -35,39 +35,41 @@ var ArticleSingle = React.createClass({
             <a href="/">Go back</a>
           </div>
         </header>
-        <article className="container">
-          <header>
-          <h1>{article.title}</h1>
-            <span className="article-meta">{article.date}</span>
-          </header>
+        <div className="container">
+          <article>
+            <header>
+              <span className="article-meta">{article.date}</span>
+              <h1>{article.title}</h1>
+            </header>
 
-          <div dangerouslySetInnerHTML={rawMarkup} />
+            <div dangerouslySetInnerHTML={rawMarkup} />
 
-          <div id="comment-section" dangerouslySetInnerHTML={{__html: `
-            <div id="disqus_thread"></div>
-            <script>
-            /**
-            * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-            * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-            */
-            /*
-            var disqus_config = function () {
-            this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            */
-            (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
+            <div id="comment-section" dangerouslySetInnerHTML={{__html: `
+              <div id="disqus_thread"></div>
+              <script>
+              /**
+              * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+              * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+              */
+              /*
+              var disqus_config = function () {
+              this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+              };
+              */
+              (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
 
-            s.src = '//supertri.disqus.com/embed.js';
+              s.src = '//supertri.disqus.com/embed.js';
 
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-          `}} />
-        </article>
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+              })();
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            `}} />
+          </article>
+        </div>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script dangerouslySetInnerHTML={{__html: `hljs.initHighlightingOnLoad();`}}></script>

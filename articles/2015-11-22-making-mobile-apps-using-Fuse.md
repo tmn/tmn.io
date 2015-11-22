@@ -148,7 +148,8 @@ When creating a native module for JavaScript we have to manually define the memb
 ```csharp
 public SystemSounds()
 {
-  AddMember(new NativeFunction("playNotification", (NativeCallback) PlayNotification));
+  AddMember(new NativeFunction("playNotification",
+      (NativeCallback) PlayNotification));
 }
 ```
 
@@ -191,7 +192,8 @@ public class SystemSounds : NativeModule
 {
   public SystemSounds()
   {
-    AddMember(new NativeFunction("playNotification", (NativeCallback) PlayNotification));
+    AddMember(new NativeFunction("playNotification",
+        (NativeCallback) PlayNotification));
   }
 
   object PlayNotification(Context c, object[] args)

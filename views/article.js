@@ -3,6 +3,8 @@ var path = require('path');
 var React = require('react');
 var marked = require('marked');
 
+var Sidebar = require('./sidebar');
+
 var ArticleSingle = React.createClass({
   render: function () {
     var md = fs.readFileSync(path.join(__dirname + '/../articles', this.props.article) + '.md', 'utf8');
@@ -26,49 +28,54 @@ var ArticleSingle = React.createClass({
         <link rel="stylesheet" type="text/css" href="/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/main.css" />
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 
         <meta name="viewport" content="width=device-width" />
       </head>
       <body>
         <header id="article-header">
           <div className="container">
-            <a href="/">Go back</a>
+            <a href="/">Go home</a>
           </div>
         </header>
-        <div className="container">
-          <article>
-            <header>
-              <span className="article-meta">{article.date}</span>
-              <h1>{article.title}</h1>
-            </header>
+        <div className="wrap0">
+          <section id="blogContent">
+            <article>
+              <header>
+                <span className="article-meta">{article.date}</span>
+                <h1>{article.title}</h1>
+              </header>
 
-            <div dangerouslySetInnerHTML={rawMarkup} />
+              <div dangerouslySetInnerHTML={rawMarkup} />
 
-            <div id="comment-section" dangerouslySetInnerHTML={{__html: `
-              <div id="disqus_thread"></div>
-              <script>
-              /**
-              * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-              * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-              */
-              /*
-              var disqus_config = function () {
-              this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
-              this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-              };
-              */
-              (function() { // DON'T EDIT BELOW THIS LINE
-              var d = document, s = d.createElement('script');
+              <div id="comment-section" dangerouslySetInnerHTML={{__html: `
+                <div id="disqus_thread"></div>
+                <script>
+                /**
+                * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                */
+                /*
+                var disqus_config = function () {
+                this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
 
-              s.src = '//supertri.disqus.com/embed.js';
+                s.src = '//supertri.disqus.com/embed.js';
 
-              s.setAttribute('data-timestamp', +new Date());
-              (d.head || d.body).appendChild(s);
-              })();
-              </script>
-              <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-            `}} />
-          </article>
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+              `}} />
+            </article>
+          </section>
+
+          <Sidebar />
         </div>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>

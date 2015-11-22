@@ -64,7 +64,7 @@ And use it as the example above. No need for extra include statements.
 
 ## Themes
 
-Themes in fuse specifies how standard components will look and feel. The default theme is the `Graphic` theme that give the app an identical look and feel on all platforms. Alternatively you can use the `Basic` theme which is inspired by Googles material design. You can also specify `Native` theme if you want the app to have the native look and feel for the targeted platform. Be aware that the Native look and feel isn't supported on desktop. Which means you won't get any styles when previewing on desktop. An alternative is to use the `NativeWithFallback` theme if you want to use the preview on desktop too.
+Themes in fuse specifies how standard components will look and feel. The default theme is the `Graphic` theme that give the app an identical look and feel on all platforms. Alternatively you can use the `Basic` theme which is inspired by Googles material design. You can also specify `Native` theme if you want the app to have the native look and feel for the targeted platform. Be aware that the Native look and feel isn't supported on desktop. Which means you won't get any styles when previewing on desktop. If you want to use the preview on desktop, but still have the native theming on the devises, you can use the `NativeWithFallback` theme.
 
 Themes are specified in the `<App>` tag:
 

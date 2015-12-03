@@ -131,6 +131,6 @@ new RoboHydraHead({
 ## Sum it up already!
 These are my main use cases with Robohydra. By using these methods you can simply create tests clients for your client-server application, return canned responses, static content, reverse proxy requests and a whole lot more. It also comes with a web interface that allow you to change its behaviour dynamically, with easy access to scenarios and test results. Head over to [robohydra.org](http://robohydra.org/) and grab your copy of this awesome tool!
 
-![Robohydra screen](http://tmn.io/img/robohydra_screen.png)
+![Robohydra screen](https://tmn.io/img/robohydra_screen.png)
 
 Also. Follow the awesome creator, [@estebanm](https://twitter.com/estebanm) and [@robohydra](https://twitter.com/robohydra), on Twitter.

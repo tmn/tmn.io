@@ -10,7 +10,7 @@ var Sidebar = () => {
         <ul className="profileLocation-list">
           <li><a href="https://github.com/tmn/"><i className="fa fa-github fa-custom"></i></a></li>
           <li><a href="https://twitter.com/itmn/"><i className="fa fa-twitter fa-custom"></i></a></li>
-          <li><a href="/is/professional">CV</a></li>
+          <li><a href="https://cv.tmn.io/">CV</a></li>
         </ul>
       </header>
       <div className="sidebar-content">

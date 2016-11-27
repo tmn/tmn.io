@@ -1,30 +1,25 @@
-var fs = require('fs');
-var path = require('path');
-var React = require('react');
-var marked = require('marked');
+import fs from 'fs';
+import path from 'path';
+import React from 'react';
+import marked from 'marked';
 
-var Sidebar = require('./sidebar');
+import Header from './header';
 
-var ArticleSingle = React.createClass({
-  render: function () {
-    var md = fs.readFileSync(path.join(__dirname + '/../articles', this.props.article) + '.md', 'utf8');
-    md = md.split('\n');
+const ArticleSingle = ({ article, title }) => {
+  let md = fs.readFileSync(path.join(__dirname + '/../articles', article) + '.md', 'utf8');
+  md = md.split('\n');
 
-    var article = {
-      title: md[0].split('#').slice(1).join('#'),
-      date: md[1],
-      content: md.slice(3).join('\n')
-    };
+  const currentArticle = {
+    title: md[0].split('#').slice(1).join('#'),
+    date: md[1],
+    content: md.slice(3).join('\n')
+  };
 
-    var rawMarkup = {
-      __html: marked(article.content, { sanitize: true })
-    };
-
-    return (
-      <html>
+  return (
+    <html>
       <head>
         <meta charSet="utf-8" />
-        <title>{this.props.title}</title>
+        <title>{ title }</title>
         <link rel="stylesheet" type="text/css" href="/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/main.css" />
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css" />
@@ -38,17 +33,22 @@ var ArticleSingle = React.createClass({
             <a href="/">Go home</a>
           </div>
         </header>
-        <div className="wrap0">
-          <section id="blogContent">
-            <article>
-              <header>
-                <span className="article-meta">{article.date}</span>
-                <h1>{article.title}</h1>
-              </header>
 
-              <div dangerouslySetInnerHTML={rawMarkup} />
+        <Header showImage={ false } />
 
-              <div id="comment-section" dangerouslySetInnerHTML={{__html: `
+
+        <section id="blogContent" className="container">
+          <article>
+            <header>
+              <span className="article-meta">{ currentArticle.date }</span>
+              <h1>{ currentArticle.title }</h1>
+            </header>
+
+            <div dangerouslySetInnerHTML={ {
+                __html: marked(currentArticle.content, { sanitize: true })
+              } } />
+
+            <div id="comment-section" dangerouslySetInnerHTML={{__html: `
                 <div id="disqus_thread"></div>
                 <script>
                 /**
@@ -72,11 +72,8 @@ var ArticleSingle = React.createClass({
                 </script>
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
               `}} />
-            </article>
-          </section>
-
-          <Sidebar />
-        </div>
+          </article>
+        </section>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script dangerouslySetInnerHTML={{__html: `hljs.initHighlightingOnLoad();`}}></script>
@@ -90,9 +87,8 @@ var ArticleSingle = React.createClass({
           ga('send', 'pageview');
         `}} />
       </body>
-      </html>
-    );
-  }
-});
+    </html>
+  );
+};
 
 module.exports = ArticleSingle;

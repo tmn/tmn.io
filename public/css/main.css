@@ -149,16 +149,11 @@ article ul {
   margin: 0 auto 30px auto;
 }
 
-#blogContent {
-  width: 100%;
-}
-
 /*
    ------------------------------------------------------------------------------*/
 #article-header {
   background-color: #222;
   height: 40px;
-  line-height: 40px;
   font-family: Roboto, sans-serif;
   font-size: 14px;
   text-align: center;

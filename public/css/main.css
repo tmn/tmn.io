@@ -154,7 +154,8 @@ article ul {
    ------------------------------------------------------------------------------*/
 #article-header {
   background-color: #222;
-  height: 40px;
+  height: 38px;
+  line-height: 38px;
   font-family: Roboto, sans-serif;
   font-size: 14px;
   text-align: center;

@@ -1,16 +1,21 @@
-var React = require('react');
+import React from 'react';
 
-module.exports = () => {
-  return (
-    <header id="mainHeader">
-      <div className="mainHeader-content">
-        <p >Gullet ska hjæm t Trondhjæm! <a className="gold" href="https://twitter.com/hashtag/RBK?src=hash">#RBK</a></p>
-        <ul className="profileLocation-list">
-          <li><a href="https://github.com/tmn/"><i className="fa fa-github fa-custom"></i></a></li>
-          <li><a href="https://twitter.com/itmn/"><i className="fa fa-twitter fa-custom"></i></a></li>
+const Header = ({ showImage = true }) => (
+  <header id="mainHeader">
+    <div className="mainHeader-content">
+      { showImage ? <img src="/img/tmn2.png" /> : null }
+
+      <h1>Tri Nguyen</h1>
+
+      <nav>
+        <ul>
+          <li><a href="https://github.com/tmn/">Github</a></li>
+          <li><a href="https://twitter.com/itmn/">Twitter</a></li>
           <li><a href="/is/professional">CV</a></li>
         </ul>
-      </div>
-    </header>
-  );
-}
+      </nav>
+    </div>
+  </header>
+);
+
+module.exports = Header;

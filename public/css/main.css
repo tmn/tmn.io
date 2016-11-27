@@ -124,6 +124,7 @@ article ul {
   text-align: center;
   padding-top: 80px;
   padding-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 #mainHeader h1 {
@@ -194,6 +195,19 @@ article ul {
 }
 
 @media (max-width: 790px) {
+  #mainHeader {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  #mainheader h1 {
+    font-size: 32px;
+  }
+
+  #mainHeader img {
+    width: 150px;
+  }
+
   article {
     padding: 25px 15px;
   }

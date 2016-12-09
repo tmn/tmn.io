@@ -28,14 +28,7 @@ const ArticleSingle = ({ article, title }) => {
         <meta name="viewport" content="width=device-width" />
       </head>
       <body>
-        <header id="article-header">
-          <div className="container">
-            <a href="/">Go home</a>
-          </div>
-        </header>
-
         <Header showImage={ false } />
-
 
         <section id="blogContent" className="container">
           <article>

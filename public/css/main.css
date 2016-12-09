@@ -75,7 +75,6 @@ em {
 .container {
   max-width: 820px;
   margin: 0 auto;
-  padding: 0 15px;
 }
 
 article {
@@ -86,6 +85,8 @@ article {
 
   margin-bottom: 65px;
   box-sizing: border-box;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 article header {
@@ -98,7 +99,8 @@ article header h1:hover {
 
 article img {
   max-width: 950px;
-  margin: 0 -70px;
+  width: 100%;
+  margin-left: -25px;
 }
 
 article ul {
@@ -118,8 +120,6 @@ article ul {
   background: #fafafa;
   text-align: center;
   margin-bottom: 20px;
-  height: 80px;
-  line-height: 80px;
 }
 
 #mainHeader h1 {
@@ -141,6 +141,14 @@ article ul {
   font-size: 14px;
 }
 
+.mainHeader-content {
+  padding-left: 25px;
+  padding-right: 25px;
+  height: 80px;
+  line-height: 80px;
+  box-sizing: border-box;
+}
+
 /*
    ------------------------------------------------------------------------------*/
 #article-header {
@@ -160,23 +168,15 @@ article ul {
   margin-top: 85px;
 }
 
-@media (max-width: 790px) {
-  #mainHeader h1 {
-    margin-left: 10px;
-  }
-
+@media (max-width: 880px) {
   #mainHeader nav li {
     margin-left: 3px;
     margin-right: 3px;
-    font-size: 12px;
+    font-size: 13px;
   }
 
   article {
-    padding: 25px 15px;
-  }
-
-  article img {
-    width: 125%;
-    margin-left: -30px;
+    padding-top: 25px;
+    box-sizing: border-box;
   }
 }

@@ -92,8 +92,6 @@ article header {
   margin-bottom: 35px;
 }
 
-
-
 article header h1:hover {
   color: #376682;
 }
@@ -163,6 +161,16 @@ article ul {
 }
 
 @media (max-width: 790px) {
+  #mainHeader h1 {
+    margin-left: 10px;
+  }
+
+  #mainHeader nav li {
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 12px;
+  }
+
   article {
     padding: 25px 15px;
   }

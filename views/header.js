@@ -3,7 +3,7 @@ import React from 'react';
 const Header = ({ showImage = true }) => (
   <header id="mainHeader">
     <div className="container mainHeader-content">
-      <a href="/"><h1>Tri Nguyen</h1></a>
+      <a href="/"><h1>TriNguyen</h1></a>
 
       <nav>
         <ul>

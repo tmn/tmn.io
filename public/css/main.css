@@ -130,6 +130,7 @@ article ul {
   float: left;
   text-transform: uppercase;
   font-family: helveticaNeue-light;
+  letter-spacing: 1px;
 }
 
 #mainHeader nav {

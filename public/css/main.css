@@ -80,11 +80,14 @@ em {
 article {
   position: relative;
   background-color: #fff;
-  padding-top: 45px;
-  padding-bottom: 45px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #eaeaea;
+
+  padding-bottom: 55px;
 
   margin-bottom: 65px;
-  box-sizing: border-box;
   margin-left: 25px;
   margin-right: 25px;
 }
@@ -119,7 +122,6 @@ article ul {
 #mainHeader {
   background: #fafafa;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 #mainHeader h1 {
@@ -149,6 +151,11 @@ article ul {
   box-sizing: border-box;
 }
 
+#blogContent {
+  margin-top: 65px;
+}
+
+
 /*
    ------------------------------------------------------------------------------*/
 #article-header {
@@ -173,10 +180,5 @@ article ul {
     margin-left: 3px;
     margin-right: 3px;
     font-size: 13px;
-  }
-
-  article {
-    padding-top: 25px;
-    box-sizing: border-box;
   }
 }

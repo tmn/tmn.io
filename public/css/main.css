@@ -95,6 +95,13 @@ article header {
   margin-bottom: 10px;
 }
 
+article header h1 {
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
 article header h1:hover {
   color: #376682;
 }
@@ -114,6 +121,7 @@ article ul {
   font-size: 12px;
   color: #f55555;
   display: block;
+  margin-left: 2px;
 }
 
 #mainHeader {

@@ -7,8 +7,7 @@ const Header = ({ showImage = true }) => (
 
       <nav>
         <ul>
-          <li><a href="/is/professional">CV</a></li>
-          <li> | </li>
+          <li><a href="https://cv.tmn.io/">CV</a></li>
           <li><a href="https://github.com/tmn/">GitHub</a></li>
           <li><a href="https://twitter.com/itmn/">Twitter</a></li>
         </ul>

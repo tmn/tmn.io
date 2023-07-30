@@ -7,7 +7,7 @@ I tried it for the first time back in 2013, and a lot have changed since. With t
 
 There are of course other tools out there letting you create and deploy application on multiple platforms. But the cool thing about Fuse is its ability to push updates of the look and feel to multiple devices in real time. So for every bits of design and logic you change, Fuse will stream the changes to all connected devices while developing. Now the designers can flip pixels while the developer is writing the business logic, and all changes is reflected in real time in the application. No need to re-compile. You **really** have to try it!
 
-![Fuse](https://tmn.io/img/fusetools.jpg)
+![Fuse](/img/fusetools.jpg)
 
 ## Native apps
 
@@ -24,7 +24,7 @@ The Fuse team provides great tutorial videos for you to get started. Some bits a
 
 ## Creating our first app!
 
-We will start out simple by using only UX Markup. UX Markup is a XML-based format that should be immediately familiar to anyone who has worked with similar formats. The root tag of your application is the `<App>` tag. This one bootstraps the app and takes care of the application lifecycle.
+We will start out simple by using only UX Markup. UX Markup is a XML-based format that should be immediately familiar to anyone who has worked with similar formats. The root tag of your application is the `<App />` tag. This one bootstraps the app and takes care of the application lifecycle.
 
 ```xml
 <App Theme="Basic" Background="#fff">
@@ -66,7 +66,7 @@ And use it as the example above. No need for extra include statements.
 
 Themes in fuse specifies how standard components will look and feel. The default theme is the `Graphic` theme that give the app an identical look and feel on all platforms. Alternatively you can use the `Basic` theme which is inspired by Googles material design. You can also specify `Native` theme if you want the app to have the native look and feel for the targeted platform. Be aware that the Native look and feel isn't supported on desktop. Which means you won't get any styles when previewing on desktop. If you want to use the preview on desktop, but still have the native theming on the devices, you can use the `NativeWithFallback` theme.
 
-Themes are specified in the `<App>` tag:
+Themes are specified in the `<App />` tag:
 
 ```xml
 <App Theme="Basic">
@@ -93,6 +93,7 @@ module.exports = {
 ```
 
 And including it inside your .ux file:
+
 ```xml
 <App>
   <JavaScript File="js/app.js" />
@@ -112,6 +113,7 @@ One thing you might wanna do is to split the JavaScript into different modules. 
 ```
 
 js/MyComponent.js:
+
 ```javascript
 function MyComponent() {
   // .. do awesome stuff here!
@@ -121,6 +123,7 @@ module.exports = MyComponent;
 ```
 
 js/app.js:
+
 ```javascript
 var MyComponent = require('MyComponent');
 

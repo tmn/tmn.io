@@ -85,6 +85,7 @@ Sometimes you may be told to demo a solution for peoples outside your company ne
 The `RoboHydraHeadStatic` lets you serve static mocks without changing anything in your project. No extra configs, no adjustments, no refactoring. Your project is still untouched. The only thing you need to do is to construct som mock data, and run it all through Robohydra: 
 
 Mocks (`data.json`):
+
 ```json
 [
   {

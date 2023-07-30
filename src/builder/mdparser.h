@@ -18,6 +18,7 @@ class MDParser
   std::string read_file(const char* file);
   std::string parse_markdown_to_html(std::string content);
   void create_article(std::string content);
+  void create_index_file();
 
   tinyxml2::XMLDocument * getDocument() { return this->document; }
  private:

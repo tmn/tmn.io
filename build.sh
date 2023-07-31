@@ -10,13 +10,3 @@ IFS=$'\n' article_files=($(sort -r <<< "${article_files[*]}"))
 unset IFS
 
 ./_build/src/builder/builder ${article_files[@]}
-
-echo -e "\n> Copy assets to _dist/"
-
-echo "-- Copying assets.."
-cp -r src/www/assets _dist/
-
-echo "-- Copying img.."
-cp -r src/www/img _dist/
-
-echo -e "\n> Build finished\n"

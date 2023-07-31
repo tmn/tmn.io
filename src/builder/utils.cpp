@@ -1,6 +1,5 @@
 #import "utils.h"
 
-
 std::vector<std::string> utils::split(const char* s, char delimiter)
 {
   std::vector<std::string> tmp;

@@ -3,6 +3,7 @@
 tmnio::tmnio()
 {
   document = new tinyxml2::XMLDocument();
+
   tinyxml2::XMLElement *element = document->NewElement("section");
   element->SetAttribute("class", "container");
   element->SetAttribute("id", "blogContent");
@@ -28,34 +29,11 @@ void tmnio::create_article(const char* file)
 
   for (tinyxml2::XMLNode *node = article_content.FirstChildElement(); node; node = node->NextSibling()) {
     tinyxml2::XMLNode *n = node->DeepClone(document);
+    parse_code_block(n);
     article->InsertEndChild(n);
   }
 
-  // Move meta field to top
-  tinyxml2::XMLElement *el = article->FirstChildElement("p");
-  el->SetAttribute("class", "article-meta");
-  article->InsertFirstChild(el);
-
-
-  // Fix code blocks containing markup
-  tinyxml2::XMLElement *pre = article->FirstChildElement("pre");
-
-  for (tinyxml2::XMLNode *pre_node = article->FirstChildElement("pre"); pre_node; pre_node = pre_node->NextSiblingElement("pre")) {
-    if (pre_node) {
-      tinyxml2::XMLElement *code = pre_node->FirstChildElement("code");
-
-      if (code) {
-        tinyxml2::XMLNode *el = code->FirstChild();
-
-        if (el) {
-          tinyxml2::XMLPrinter p;
-          el->Accept(&p);
-          code->DeleteChildren();
-          code->SetText(p.CStr());
-        }
-      }
-    }
-  }
+  parse_meta_field(article);
 }
 
 void tmnio::create_index_file()
@@ -81,6 +59,33 @@ void tmnio::create_index_file()
   outfile.close();
 }
 
+void tmnio::parse_code_block(tinyxml2::XMLNode *src)
+{
+  // Fix code blocks
+  tinyxml2::XMLNode *code = src->FirstChildElement("code");
+  if (code) {
+    tinyxml2::XMLNode *el = code->FirstChild();
+
+    if (el) {
+      tinyxml2::XMLPrinter p;
+      el->Accept(&p);
+      code->DeleteChildren();
+      code->ToElement()->SetText(p.CStr());
+    }
+  }
+}
+
+void tmnio::parse_meta_field(tinyxml2::XMLNode *src)
+{
+  tinyxml2::XMLElement *el = src->FirstChildElement("p");
+  el->SetAttribute("class", "article-meta");
+  src->InsertFirstChild(el);
+}
+
+
+//
+// Static methods
+//
 std::string tmnio::read_file(const char* file)
 {
   std::ifstream markdown_file(file);

@@ -1,14 +1,13 @@
 #include "tmnio.h"
+#include "utils.h"
+
+namespace fs = std::filesystem;
+
 
 tmnio::tmnio()
+  : document(new tinyxml2::XMLDocument())
 {
-  document = new tinyxml2::XMLDocument();
 
-  tinyxml2::XMLElement *element = document->NewElement("section");
-  element->SetAttribute("class", "container");
-  element->SetAttribute("id", "blogContent");
-
-  document->InsertFirstChild(element);
 }
 
 tmnio::~tmnio()
@@ -16,16 +15,41 @@ tmnio::~tmnio()
   delete document;
 }
 
+void tmnio::create_dist_directory()
+{
+  if (!fs::exists("_dist")) {
+    std::cout << "_dist not found" << '\n';
+    if (fs::create_directory("_dist")) {
+      std::cout << "Successfully created _dist directory" << '\n';
+      fs::create_directory("_dist/read");
+    }
+  }
+}
+
 void tmnio::create_article(const char* file)
 {
-  std::string file_content = tmnio::read_file(file);
-  std::string html_content = tmnio::parse_markdown_to_html(file_content);
+  std::string file_content(tmnio::read_file(file));
+  std::string html_content(tmnio::parse_markdown_to_html(file_content));
 
+  // Parse article path
+  std::vector<std::string> path_v(utils::split(file, '/'));
+
+  std::ostringstream spath;
+  std::copy(path_v.begin(), path_v.end(), std::ostream_iterator<std::string>(spath, "/"));
+
+  std::string path("/read/" + spath.str());
+  path.erase(path.end()-4, path.end());
+
+
+  // Create article
   tinyxml2::XMLDocument article_content;
   article_content.Parse(html_content.c_str(), html_content.length());
 
   tinyxml2::XMLElement *article = document->NewElement("article");
-  document->FirstChildElement("section")->InsertEndChild(article);
+  document->InsertEndChild(article);
+
+  tinyxml2::XMLElement *header = document->NewElement("header");
+  article->InsertFirstChild(header);
 
   for (tinyxml2::XMLNode *node = article_content.FirstChildElement(); node; node = node->NextSibling()) {
     tinyxml2::XMLNode *n = node->DeepClone(document);
@@ -33,7 +57,9 @@ void tmnio::create_article(const char* file)
     article->InsertEndChild(n);
   }
 
-  parse_meta_field(article);
+  // Modify article element
+  parse_meta_field(article, header, path);
+  create_article_file(path, article);
 }
 
 void tmnio::create_index_file()
@@ -42,15 +68,40 @@ void tmnio::create_index_file()
   std::ofstream outfile("_dist/index.html");
 
   std::string line;
-  std::string old ("{{ARTICLES}}");
+  std::string article_replace_tag ("{{ARTICLES}}");
 
   while(std::getline(html_file, line)) {
-    std::size_t found = line.find(old);
+    std::size_t found = line.find(article_replace_tag);
 
     if (found!=std::string::npos) {
       tinyxml2::XMLPrinter printer;
       document->Print(&printer);
-      line.replace(found, sizeof(old), printer.CStr());
+      line.replace(found, sizeof(article_replace_tag), printer.CStr());
+    }
+
+    outfile << line << '\n';
+  }
+
+  outfile.close();
+}
+
+void tmnio::create_article_file(std::string path, tinyxml2::XMLNode *article)
+{
+  fs::create_directories("_dist" + path);
+
+  std::ifstream html_file("src/www/index.html");
+  std::ofstream outfile("_dist" + path + "/index.html");
+
+  std::string line;
+  std::string article_replace_tag ("{{ARTICLES}}");
+
+  while(std::getline(html_file, line)) {
+    std::size_t found = line.find(article_replace_tag);
+
+    if (found!=std::string::npos) {
+      tinyxml2::XMLPrinter printer;
+      article->Accept(&printer);
+      line.replace(found, sizeof(article_replace_tag), printer.CStr());
     }
 
     outfile << line << '\n';
@@ -61,7 +112,6 @@ void tmnio::create_index_file()
 
 void tmnio::parse_code_block(tinyxml2::XMLNode *src)
 {
-  // Fix code blocks
   tinyxml2::XMLNode *code = src->FirstChildElement("code");
   if (code) {
     tinyxml2::XMLNode *el = code->FirstChild();
@@ -75,11 +125,25 @@ void tmnio::parse_code_block(tinyxml2::XMLNode *src)
   }
 }
 
-void tmnio::parse_meta_field(tinyxml2::XMLNode *src)
+void tmnio::parse_meta_field(tinyxml2::XMLNode *src, tinyxml2::XMLNode *dest, std::string path)
 {
   tinyxml2::XMLElement *el = src->FirstChildElement("p");
-  el->SetAttribute("class", "article-meta");
-  src->InsertFirstChild(el);
+  if (el) {
+    el->SetAttribute("class", "article-meta");
+    dest->InsertFirstChild(el);
+  }
+
+  tinyxml2::XMLElement *heading = src->FirstChildElement("h1");
+  if (heading) {
+    tinyxml2::XMLElement *anchor = document->NewElement("a");
+    anchor->SetAttribute("href", path.c_str());
+    anchor->SetText(heading->GetText());
+
+    heading->DeleteChildren();
+    heading->InsertEndChild(anchor);
+
+    dest->InsertEndChild(heading);
+  }
 }
 
 

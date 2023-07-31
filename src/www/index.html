@@ -6,7 +6,7 @@
     <title>title</title>
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="assets/v2/css/core.css">
+    <link rel="stylesheet" type="text/css" href="/assets/v2/css/core.css">
 
     <link rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/dark.min.css">
@@ -30,7 +30,11 @@
         </div>
     </header>
 
-    {{ARTICLES}}
+    <section id="blogContent" class="container">
+
+        {{ARTICLES}}
+
+    </section>
 
     <script>hljs.highlightAll();</script>
     <script src="assets/v2/js/main.js"></script>

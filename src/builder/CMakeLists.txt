@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.25)
 project(builder)
 
 if(NOT DEFINED CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 17)
 endif()
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -25,8 +25,10 @@ FetchContent_MakeAvailable(maddy tinyxml2)
 set(SOURCES
   main.cpp
   tmnio.cpp
+  utils.cpp
 
   tmnio.h
+  utils.h
 )
 
 add_executable(builder ${SOURCES})
